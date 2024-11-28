@@ -10,8 +10,10 @@ class Node{
     public:
     Node(int j);
     Node* insertR(int j);
+    Node* insertI(int j);
+    bool searchI(int j);
+    bool searchR(int j);
     void inOrder();
 };
 
 #endif
-
