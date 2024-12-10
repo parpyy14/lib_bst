@@ -17,8 +17,8 @@ class Node{
     bool searchI(int j);
     bool searchR(int j);
     void inOrder();
-    friend ostream& operator>>(ostream& os, Node* N);
-    friend istream& operator<<(istream& is, Node* N);
+    friend ostream& operator<<(ostream& os, Node* N);
+    friend istream& operator>>(istream& is, Node* N);
 };
 
 #endif

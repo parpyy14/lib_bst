@@ -109,7 +109,7 @@ ostream& operator<<(ostream& os, Node* N) {
 
 istream& operator>>(istream& is, Node* N) {
     is >> N->data;
-    N->lchild = nullptr;
-    N->rchild = nullptr;
+    N->left_child = nullptr;
+    N->right_child = nullptr;
     return is;
 }
