@@ -19,6 +19,10 @@ class Node{
     void inOrder();
     friend ostream& operator<<(ostream& os, Node* N);
     friend istream& operator>>(istream& is, Node* N);
+    void preOrder();
+    void postOrder();
+    bool isBst();
+    Node* deleteNode(int j);
 };
 
 #endif

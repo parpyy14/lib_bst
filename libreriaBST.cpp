@@ -109,7 +109,69 @@ ostream& operator<<(ostream& os, Node* N) {
 
 istream& operator>>(istream& is, Node* N) {
     is >> N->data;
-    N->left_child = nullptr;
-    N->right_child = nullptr;
+    N->left_child = NULL;
+    N->right_child = NULL;
     return is;
+}
+
+void Node::preOrder() {
+    Node* r=this;
+    if (r == NULL) return;
+
+    cout << r->data << " ";
+    r->left_child->preOrder();
+    r->right_child->preOrder();
+}
+
+void Node::postOrder() {
+    Node* r=this;
+    if (r == NULL) return;
+
+    r->left_child->postOrder();
+    r->right_child->postOrder();
+    cout << r->data << " ";
+}
+
+bool Node::isBst(){
+    Node* r=this;
+    if(r == NULL) {
+        return true;
+    }
+
+    if(r->left_child != NULL && r->left_child->data > r->data) {
+        return false;
+    }
+    if(r->right_child != NULL && r->right_child->data < r->data) {
+        return false;
+    }
+    
+    return r->left_child->isBst() && r->right_child->isBst();
+}
+
+Node* Node::deleteNode(int j) {
+    Node* r=this;
+    if (j == r->data) {
+        if (r->left_child == NULL && r->right_child == NULL) {
+            delete r;
+            return NULL;
+        } else if (r->left_child == NULL) {
+            r->data = r->right_child->data;
+            r->right_child = NULL;
+            delete r->right_child;
+            return r;
+        } else if (r->right_child == NULL) {
+            r->data = r->left_child->data;
+            r->left_child = NULL;
+            delete r->left_child;
+            return r;
+        }
+    }
+    
+    if (j < r->data) {
+        r->left_child = r->left_child->deleteNode(j);
+    } else {
+        r->right_child = r->right_child->deleteNode(j);
+    }
+
+    return r;
 }
