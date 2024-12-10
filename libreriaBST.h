@@ -1,5 +1,8 @@
 #ifndef LIBRERIABST_H
 #define LIBRERIABST_H
+#include<iostream>
+
+using namespace std;
 
 class Node{
     private:
@@ -14,6 +17,8 @@ class Node{
     bool searchI(int j);
     bool searchR(int j);
     void inOrder();
+    friend ostream& operator>>(ostream& os, Node* N);
+    friend istream& operator<<(istream& is, Node* N);
 };
 
 #endif

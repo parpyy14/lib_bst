@@ -101,3 +101,15 @@ void Node::inOrder() {
     cout << r->data << " ";
     r->right_child->inOrder();
 }
+
+ostream& operator<<(ostream& os, Node* N) {
+    os << N->data;
+    return os;
+}
+
+istream& operator>>(istream& is, Node* N) {
+    is >> N->data;
+    N->lchild = nullptr;
+    N->rchild = nullptr;
+    return is;
+}
